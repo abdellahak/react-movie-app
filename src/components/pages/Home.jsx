@@ -23,23 +23,27 @@ function Home() {
   };
 
   return (
-    <div className="home">
-      <form onSubmit={handleSearch} className="search-form">
+    <div className="home bg-gray-100 min-h-screen p-8">
+      <form onSubmit={handleSearch} className="search-form mb-8 flex justify-center">
         <input
           type="text"
           placeholder="Search for movies..."
           value={searchQuery}
-          onChange={(e)=> setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button type="submit" className="search-form">
+        <button type="submit" className="p-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600">
           Search
         </button>
       </form>
-      <div className="movies-grid">
-      {
-        movies.filter((movie)=> movie.title.toLowerCase().includes(searchQuery.toLowerCase())).map((movie) => (
-          <MovieCard movie={movie} key={movie.id}></MovieCard>
-        ))}
+      <div className="movies-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        {movies
+          .filter((movie) =>
+            movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+          .map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
       </div>
     </div>
   );

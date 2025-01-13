@@ -1,14 +1,19 @@
-function MovieCard({movie}) {
-  function onFavoriteClick() {
-    alert("clicked");
-  }
+function MovieCard({ movie }) {
+  function onFavoriteClick() {}
 
   return (
-    <div className="movie-card bg-slate-500 m-2 ">
-      <div className="movie-poster">
-        <img src={movie.url} alt={movie.title} />
-        <div className="movie-overlay">
-          <button className="favorite-btn" onClick={onFavoriteClick}>
+    <div className="movie-card bg-slate-800 text-white rounded-lg shadow-lg overflow-hidden m-4 transform transition-transform hover:scale-105">
+      <div className="movie-poster relative">
+        <img
+          src={movie.url}
+          alt={movie.title}
+          className="w-full h-64 object-cover"
+        />
+        <div className="movie-overlay absolute inset-0 bg-black bg-opacity-50 flex items-start justify-end opacity-0 transition-opacity hover:opacity-100 p-4">
+          <button
+            className="favorite-btn p-2 bg-red-600 rounded-full hover:bg-red-700 focus:outline-none"
+            onClick={onFavoriteClick}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="24px"
@@ -21,9 +26,9 @@ function MovieCard({movie}) {
           </button>
         </div>
       </div>
-      <div className="movie-info">
-        <h3>{movie.title}</h3>
-        <p>{movie.release_date}</p>
+      <div className="movie-info p-4">
+        <h3 className="text-xl font-semibold">{movie.title}</h3>
+        <p className="text-gray-400">{movie.release_date}</p>
       </div>
     </div>
   );
