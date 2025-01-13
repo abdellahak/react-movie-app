@@ -1,16 +1,22 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import "./index.css";
+import MovieCard from "./components/MovieCard";
+import Home from "./components/pages/Home";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-        <div className="text-red-600 h-10 w-10">dsfqsdf</div>
+      <Home />
     </>
+  );
+}
+
+function Text({ display }) {
+  return (
+    <div>
+      <p>{display} </p>
+    </div>
   );
 }
 
